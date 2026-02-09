@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1.5rem;
+        /* Soft pastel pink/white romantic palette */
+        --background: 0.98 0.02 350;
+        --foreground: 0.35 0.08 340;
+        --card: 1 0.015 350;
+        --card-foreground: 0.35 0.08 340;
+        --popover: 1 0.015 350;
+        --popover-foreground: 0.35 0.08 340;
+        --primary: 0.75 0.15 350;
+        --primary-foreground: 1 0.01 350;
+        --secondary: 0.92 0.03 340;
+        --secondary-foreground: 0.45 0.08 340;
+        --muted: 0.95 0.02 350;
+        --muted-foreground: 0.55 0.06 340;
+        --accent: 0.88 0.12 10;
+        --accent-foreground: 0.45 0.08 340;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.90 0.04 350;
+        --input: 0.90 0.04 350;
+        --ring: 0.75 0.15 350;
+        --chart-1: 0.75 0.15 350;
+        --chart-2: 0.88 0.12 10;
+        --chart-3: 0.70 0.18 330;
+        --chart-4: 0.82 0.10 20;
+        --chart-5: 0.78 0.14 340;
+    }
+
+    .dark {
+        --background: 0.20 0.05 340;
+        --foreground: 0.95 0.02 350;
+        --card: 0.25 0.06 340;
+        --card-foreground: 0.95 0.02 350;
+        --popover: 0.25 0.06 340;
+        --popover-foreground: 0.95 0.02 350;
+        --primary: 0.75 0.15 350;
+        --primary-foreground: 1 0.01 350;
+        --secondary: 0.30 0.06 340;
+        --secondary-foreground: 0.95 0.02 350;
+        --muted: 0.28 0.05 340;
+        --muted-foreground: 0.65 0.04 350;
+        --accent: 0.88 0.12 10;
+        --accent-foreground: 0.95 0.02 350;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.02 350;
+        --border: 0.35 0.06 340;
+        --input: 0.35 0.06 340;
+        --ring: 0.75 0.15 350;
+        --chart-1: 0.75 0.15 350;
+        --chart-2: 0.88 0.12 10;
+        --chart-3: 0.70 0.18 330;
+        --chart-4: 0.82 0.10 20;
+        --chart-5: 0.78 0.14 340;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.5s ease-out forwards;
+}

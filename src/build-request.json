@@ -1,0 +1,128 @@
+{
+  "kind": "build_request",
+  "title": "Pastel Valentine surprise page with dodging “No” and generated meme reveal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-screen romantic Valentine page in the React frontend that asks: “Be my Valentine Richaa” and presents two buttons: “Yes” and “No”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-2",
+          "recent-messages-4"
+        ],
+        "quotes": [
+          "The page should be simple, romantic-themed, and have only one purpose: to ask her to be my Valentine Richaa💙💎🌎.",
+          "There should be two options: compulsory\" Yes or No\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "The main prompt text renders as “Be my Valentine Richaa”.",
+        "Two clearly labeled buttons are visible: “Yes” and “No”.",
+        "The page functions as a single-screen experience (no additional required navigation to complete the interaction)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the “No” button as an evasive control: when the user’s pointer approaches/enters the “No” button area, the button moves to a new position so it cannot be clicked, effectively forcing the user to click “Yes”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-2"
+        ],
+        "quotes": [
+          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, moving the cursor onto/near the “No” button causes it to reposition immediately.",
+        "On touch devices (iPad/Chrome), attempting to tap the “No” button causes it to reposition before a successful click/tap can be registered.",
+        "The “No” button never triggers a “decline” state; only “Yes” can complete the flow."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "On clicking “Yes”, replace (or overlay) the question UI with a reveal state that shows: (1) a meme image containing the text “Good choice ❤️” and (2) the message “Promise I will always support u and protect u pondatiii ummmmaa”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-2"
+        ],
+        "quotes": [
+          "When she clicks Yes, show her a meme image telling her “Good choice ❤️”\n\"Promise I will always support u and protect u pondatiii ummmmaa\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a success/reveal view.",
+        "The reveal view displays the meme image.",
+        "The reveal view displays the exact message: “Promise I will always support u and protect u pondatiii ummmmaa”."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a soft pastel romantic theme (pastel pink/white with complementary soft accents) consistently across the Valentine page, including background, typography, buttons, and spacing, using Tailwind CSS.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-2",
+          "recent-messages-5"
+        ],
+        "quotes": [
+          "The page should be themed romantically with a pink and white color scheme",
+          "3 soft pastel"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The UI uses a soft pastel pink/white palette (not bright/vibrant).",
+        "Buttons and text are readable with accessible contrast.",
+        "Styling is implemented via Tailwind utility classes (and/or Tailwind theme tokens) consistent across the page."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add the generated meme image as a static frontend asset (do not serve it from the backend) and render it from the reveal view.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-5"
+        ],
+        "quotes": [
+          "2 you genarate"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The meme image file exists under frontend/public/assets/generated/ and is referenced by the frontend via a static path.",
+        "The reveal view successfully loads the image in a production build without any backend calls."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui or any immutable paths listed in SYSTEM_CONTEXT.",
+    "Do not add any third-party authentication; do not use anything beyond the existing Internet Identity hook if present (not required for this app).",
+    "Keep all functionality fully client-side; no backend canister logic is required for this Valentine page."
+  ],
+  "nonGoals": [
+    "User accounts, profiles, or persistence across sessions.",
+    "Any “No” outcome flow (the experience should compel “Yes” only).",
+    "External API calls or integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Square meme image with the caption “Good choice ❤️” in a cute romantic style (valentine-meme-good-choice.dim_1024x1024.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Soft pastel romantic theme for UI"
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

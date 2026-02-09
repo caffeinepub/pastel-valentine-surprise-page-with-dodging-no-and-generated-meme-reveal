@@ -1,2 +1,3 @@
-# pastel-valentine-surprise-page-with-dodging-no-and-generated-meme-reveal
-Exported from Caffeine project: Pastel Valentine surprise page with dodging “No” and generated meme reveal
+## Pastel Valentine surprise page with dodging “No” and generated meme reveal
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

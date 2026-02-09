@@ -1,0 +1,5 @@
+{
+  "frontend/src/index.css": "Global styles with soft pastel pink/white OKLCH color system for romantic theme, plus custom animations (float, heartbeat, fadeInUp, scaleIn) for smooth Valentine interactions.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic pastel color tokens, custom font families (Georgia display font), soft shadow utilities, and increased border radius for the Valentine aesthetic.",
+  "frontend/src/App.tsx": "Single-screen Valentine page with evasive \"No\" button that repositions on hover/touch, \"Yes\" button that reveals meme image and romantic message, floating heart animations, and smooth transitions throughout."
+}

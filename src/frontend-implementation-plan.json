@@ -1,0 +1,111 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Pastel Valentine single-screen with evasive “No” and meme reveal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a single-screen Valentine prompt UI with the text “Be my Valentine Richaa” and two buttons: “Yes” and “No”.",
+      "acceptanceCriteria": [
+        "The main prompt text renders as “Be my Valentine Richaa”.",
+        "Two clearly labeled buttons are visible: “Yes” and “No”.",
+        "The page functions as a single-screen experience (no additional required navigation to complete the interaction)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement the single-screen Valentine UI view (prompt + “Yes”/“No” buttons) as the app’s primary rendered experience, keeping the entire flow on this screen."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the application renders the new single-screen Valentine App component (and that existing providers continue to wrap it)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind base layers and any minimal global styles needed to support the single-screen layout (e.g., full-height root)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the “No” button evasive so it repositions on pointer proximity/hover and on touch attempts, preventing any successful decline action.",
+      "acceptanceCriteria": [
+        "On desktop, moving the cursor onto/near the “No” button causes it to reposition immediately.",
+        "On touch devices (iPad/Chrome), attempting to tap the “No” button causes it to reposition before a successful click/tap can be registered.",
+        "The “No” button never triggers a “decline” state; only “Yes” can complete the flow."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement evasive behavior for the “No” button using pointer/mouse/touch events and container-bounded random repositioning (e.g., reacting to pointer enter/move and touch/pointer down) so the button cannot be successfully clicked/tapped and never triggers any decline state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On “Yes”, transition to a reveal state that shows the generated meme image and the exact promised message.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a success/reveal view.",
+        "The reveal view displays the meme image.",
+        "The reveal view displays the exact message: “Promise I will always support u and protect u pondatiii ummmmaa”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a client-side reveal state that replaces/overlays the question UI after clicking “Yes”, rendering (1) the meme image and (2) the exact message “Promise I will always support u and protect u pondatiii ummmmaa”."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a consistent soft pastel romantic theme (pastel pink/white + soft accents) across the Valentine UI using Tailwind CSS.",
+      "acceptanceCriteria": [
+        "The UI uses a soft pastel pink/white palette (not bright/vibrant).",
+        "Buttons and text are readable with accessible contrast.",
+        "Styling is implemented via Tailwind utility classes (and/or Tailwind theme tokens) consistent across the page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply Tailwind utility classes for a soft pastel romantic layout (background, typography, spacing, button styling) consistently across both the prompt and reveal states."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens (colors/shadows/radii as needed) to support a soft pastel pink/white romantic palette that can be reused consistently across the page."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define any supporting CSS variables used by Tailwind theme tokens (if needed) to achieve the soft pastel romantic palette while maintaining readable contrast."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the generated meme image as a static frontend asset and render it in the reveal view without backend calls.",
+      "acceptanceCriteria": [
+        "The meme image file exists under frontend/public/assets/generated/ and is referenced by the frontend via a static path.",
+        "The reveal view successfully loads the image in a production build without any backend calls."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-meme-good-choice.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static meme asset file at the exact path frontend/public/assets/generated/valentine-meme-good-choice.dim_1024x1024.png for use in the reveal view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference and render the static generated meme image from the exact path frontend/public/assets/generated/valentine-meme-good-choice.dim_1024x1024.png within the reveal state, ensuring it loads via static asset serving (no backend calls)."
+        }
+      ]
+    }
+  ]
+}

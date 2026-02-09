@@ -1,0 +1,14 @@
+{
+  "backend/main.mo": "Minimal Motoko canister with an empty actor.",
+  "feature_evidence.json": "Feature-to-file mapping describing Valentine UI features, evasive button logic, meme reveal, and theme requirements.",
+  "frontend-file-summaries.txt": "Prewritten summaries of major frontend files including App.tsx, index.css, and tailwind config.",
+  "frontend/index.css": "Base Tailwind setup defining theme variables and dark mode palette using OKLCH values.",
+  "frontend/index.html": "HTML entry point loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Main Valentine page implementing evasive No button, Yes-triggered reveal view, meme display, and themed animations.",
+  "frontend/src/hooks/useActor.ts": "Hook creating and refreshing a backend actor tied to Internet Identity state via react-query.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Authentication context and provider handling Internet Identity login, storage, and status management.",
+  "frontend/src/index.css": "Frontend-specific romantic pastel theme variables plus custom animations for hearts and transitions.",
+  "frontend/src/main.tsx": "React entry file configuring QueryClient, identity provider, and rendering App.",
+  "frontend/tailwind.config.js": "Tailwind config extending pastel color tokens, fonts, shadows, and animation utilities for the Valentine theme.",
+  "project_state.json": "Tracks the project’s versioned state for building a pastel-themed Valentine React app with an evasive No button and a Yes-triggered meme reveal. Lists existing features, pending requests, and needed static assets."
+}
